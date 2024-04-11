@@ -11,13 +11,18 @@ header {
   text-align: center;
 }
 .container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0 20px;
-  display: inline-flex;
+  max-width: 1600px;
+  margin-bottom: 20px;
+  padding-bottom: 3000px;
+  display: flex;
+  /* flex-basis: 0 0 30%; */
+  justify-content: center;
+  
 }
 .content {
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 5px; 
+  margin: 10px;
+
 }
