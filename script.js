@@ -2,7 +2,8 @@ const characterBtnEl = document.querySelector("#characters")
 const planetBtnEl = document.querySelector("#planets")
 const shipsBtnEl = document.querySelector("#starships")
 
-characterBtnEl.addEventListener('click', function(){
+characterBtnEl.addEventListener('click', function(event){
+  event.stopPropagation();
     const requestUrl = 'http://swapi.dev/api/people/';
   fetch(requestUrl)
     .then(function (response) {
@@ -24,11 +25,11 @@ characterBtnEl.addEventListener('click', function(){
         createTableRow.appendChild(tableData)
         characterBtnEl.appendChild(createTableRow)
 
-        
       }
-    });
-  }
+    })
+  }, {once : true}
   )
+ 
   planetBtnEl.addEventListener('click', function(){
     const requestUrl = 'http://swapi.dev/api/planets/';
     fetch(requestUrl)
@@ -40,16 +41,17 @@ characterBtnEl.addEventListener('click', function(){
       for (const planets of data.results) {
         const createTableRow = document.createElement('tr');
         const tableData = document.createElement('td');
-        const li = document.createElement('li');
+        const a = document.createElement('a');
         
-        li.textContent = planets.name;
+        a.textContent = planets.name;
+        a.href = "./next.html"
     
-        tableData.appendChild(li);
+        tableData.appendChild(a);
         createTableRow.appendChild(tableData)
         planetBtnEl.appendChild(createTableRow)
       }
     });
-  }
+  }, {once : true}
   )
   shipsBtnEl.addEventListener('click', function(){
     const requestUrl = 'http://swapi.dev/api/starships/';
@@ -63,14 +65,17 @@ characterBtnEl.addEventListener('click', function(){
       for (const starships of data.results) {
         const createTableRow = document.createElement('tr');
         const tableData = document.createElement('td');
-        const li = document.createElement('li');
+        const a = document.createElement('a');
         
-        li.textContent = starships.name;
+        a.textContent = starships.name;
+        a.href = "./next.html"
     
-        tableData.appendChild(li);
+        tableData.appendChild(a);
         createTableRow.appendChild(tableData)
         shipsBtnEl.appendChild(createTableRow)
+
+        
       }
     });
-}
+}, {once : true}
 )
