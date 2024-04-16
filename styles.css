@@ -28,7 +28,29 @@ header {
 }
 
 .hero {
+  position: relative;
+  top: 4px;
   width: 100%;
+  
+  
+}
+.stormtrooper {
+  position: absolute;
+  left: -30px;
+  top: 530px;
+  
 }
 
+.stsize {
+  width: 90%;
+}
 
+.sandtrooper {
+  position: absolute;
+  right: -30px; 
+  top: 530px;
+}
+
+.sndsize {
+  width: 90%;
+}
