@@ -5,36 +5,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SWDataPad</title>
+    <link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet" />
   </head>
   <body>
-    <img
+    <!-- <img
       class="hero"
       src="/assets/mb_franchise-star-wars_20190701_2x.webp"
       alt="Darth Vader in space"
-    />
+    /> -->
     <header>
       <h1 class="datapad">Star Wars DataPad</h1>
     </header>
-    <div class="container">
-      <div class="stormtrooper"><img class="stsize" src="assets/st.gif" /></div>
-      <div>
-        <div class="content" id="characters">
-          <h2>Characters</h2>
-          <p></p>
+    <div>
+      <div class="container">
+        <img class="stsize" src="assets/st.gif" />
+        <div class="flex">
+          <div>
+            <div class="content" id="characters">
+              <h2>Characters</h2>
+              <p></p>
+            </div>
+          </div>
+          <div>
+            <div class="content" id="planets">
+              <h2>Planets</h2>
+            </div>
+          </div>
+          <div>
+            <div class="content" id="starships">
+              <h2>Starships</h2>
+            </div>
+          </div>
         </div>
+
+        <img class="stsize" src="assets/st2.gif" />
       </div>
       <div>
-        <div class="content" id="planets">
-          <h2>Planets</h2>
-        </div>
-      </div>
-      <div>
-        <div class="content" id="starships">
-          <h2>Starships</h2>
-        </div>
-      </div>
-      <div class="sandtrooper">
-        <img class="sndsize" src="assets/st2.gif" />
+        <div id="results" class="flex"></div>
       </div>
     </div>
     <button id="myBtn">Open Holocron</button>
@@ -48,6 +55,8 @@
         </p>
       </div>
     </div>
+
+    <section id="api-data"></section>
 
     <script src="script.js"></script>
   </body>
