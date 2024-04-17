@@ -1,5 +1,5 @@
 const characterBtnEl = document.querySelector("#characters");
-const resultsContainer = document.querySelector("#character-results");
+const resultsContainer = document.querySelector("#results");
 const planetBtnEl = document.querySelector("#planets");
 const shipsBtnEl = document.querySelector("#starships");
 
@@ -47,7 +47,7 @@ characterBtnEl.addEventListener("click", function (event) {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-              // newCard.setAttribute("style", "width:200px; height:200px");
+              // newCard.setAttribute("style", "width:200px; height:200px, margin:300px");
 
               imageEl.src = gifs;
               newCard.append(imageEl);
@@ -57,8 +57,6 @@ characterBtnEl.addEventListener("click", function (event) {
           //change the a's to buttons
           //send the value from the button to the second fetch request
         });
-
-        // tableData.appendChild(pplBtn);
         createTableRow.append(title, gender, pplBtn);
         resultsContainer.appendChild(createTableRow);
       }
