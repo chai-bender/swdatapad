@@ -4,7 +4,7 @@ const planetBtnEl = document.querySelector("#planets");
 const shipsBtnEl = document.querySelector("#starships");
 
 characterBtnEl.addEventListener("click", function (event) {
-  const requestUrl = "http://swapi.dev/api/people/";
+  const requestUrl = "https://swapi.dev/api/people/";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -29,7 +29,7 @@ characterBtnEl.addEventListener("click", function (event) {
         pplBtn.setAttribute("value", people.name);
 
         pplBtn.addEventListener("click", function (event) {
-          const requestUrl = `http://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
+          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
           fetch(requestUrl)
             .then(function (response) {
               return response.json();
@@ -65,7 +65,7 @@ characterBtnEl.addEventListener("click", function (event) {
 
 planetBtnEl.addEventListener("click", function () {
   resultsContainer.innerHTML = "";
-  const requestUrl = "http://swapi.dev/api/planets/";
+  const requestUrl = "https://swapi.dev/api/planets/";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -78,43 +78,43 @@ planetBtnEl.addEventListener("click", function () {
         const planBtn = document.createElement("button");
         title.textContent = planets.name;
         planBtn.textContent = "See GIF";
-        planBtn.setAttribute("value", planets.name)
+        planBtn.setAttribute("value", planets.name);
 
-        planBtn.addEventListener("click", function (){
-          const requestUrl = `http://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
+        planBtn.addEventListener("click", function () {
+          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
           fetch(requestUrl)
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (data) {
-            console.log(data);
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (data) {
+              console.log(data);
 
-            const randomGifNumber = Math.floor(
-              Math.random() * data.data.length
-            );
-            const sectionEl = document.getElementById("api-data");
-            sectionEl.innerHTML = "";
-            const gifs = data.data[randomGifNumber].images.original.url;
+              const randomGifNumber = Math.floor(
+                Math.random() * data.data.length
+              );
+              const sectionEl = document.getElementById("api-data");
+              sectionEl.innerHTML = "";
+              const gifs = data.data[randomGifNumber].images.original.url;
 
-            const newCard = document.createElement("div");
+              const newCard = document.createElement("div");
 
-            const imageEl = document.createElement("img");
-            // newCard.setAttribute("style", "width:200px; height:200px");
+              const imageEl = document.createElement("img");
+              // newCard.setAttribute("style", "width:200px; height:200px");
 
-            imageEl.src = gifs;
-            newCard.append(imageEl);
-            sectionEl.append(newCard);
-          });
+              imageEl.src = gifs;
+              newCard.append(imageEl);
+              sectionEl.append(newCard);
+            });
         });
 
-        createTableRow.append(title,planBtn);
+        createTableRow.append(title, planBtn);
         resultsContainer.appendChild(createTableRow);
       }
     });
 });
 shipsBtnEl.addEventListener("click", function () {
   resultsContainer.innerHTML = "";
-  const requestUrl = "http://swapi.dev/api/starships/";
+  const requestUrl = "https://swapi.dev/api/starships/";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -126,14 +126,14 @@ shipsBtnEl.addEventListener("click", function () {
         const createTableRow = document.createElement("div");
         const title = document.createElement("h3");
 
-        const shipBtn = document.createElement("button")
+        const shipBtn = document.createElement("button");
 
-        title.textContent = starships.name
-        shipBtn.textContent = "See GIF"
-        shipBtn.setAttribute("value", starships.name)
+        title.textContent = starships.name;
+        shipBtn.textContent = "See GIF";
+        shipBtn.setAttribute("value", starships.name);
 
-        shipBtn.addEventListener("click", function() {
-          const requestUrl = `http://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
+        shipBtn.addEventListener("click", function () {
+          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
           fetch(requestUrl)
             .then(function (response) {
               return response.json();
@@ -160,7 +160,7 @@ shipsBtnEl.addEventListener("click", function () {
           // trigger fetch request
           //change the a's to buttons
           //send the value from the button to the second fetch request
-        })
+        });
 
         createTableRow.append(title, shipBtn);
         resultsContainer.appendChild(createTableRow);
