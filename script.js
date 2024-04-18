@@ -47,15 +47,12 @@ characterBtnEl.addEventListener("click", function (event) {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-              // newCard.setAttribute("style", "width:200px; height:200px, margin:300px");
 
               imageEl.src = gifs;
               newCard.append(imageEl);
               sectionEl.append(newCard);
             });
-          // trigger fetch request
-          //change the a's to buttons
-          //send the value from the button to the second fetch request
+        
         });
         createTableRow.append(title, gender, pplBtn);
         resultsContainer.appendChild(createTableRow);
@@ -99,7 +96,6 @@ planetBtnEl.addEventListener("click", function () {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-              // newCard.setAttribute("style", "width:200px; height:200px");
 
               imageEl.src = gifs;
               newCard.append(imageEl);
@@ -151,15 +147,12 @@ shipsBtnEl.addEventListener("click", function () {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-              // newCard.setAttribute("style", "width:200px; height:200px");
 
               imageEl.src = gifs;
               newCard.append(imageEl);
               sectionEl.append(newCard);
             });
-          // trigger fetch request
-          //change the a's to buttons
-          //send the value from the button to the second fetch request
+     
         });
 
         createTableRow.append(title, shipBtn);
@@ -192,3 +185,70 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+const formData = document.getElementById('form')
+
+function start(event) {
+  event.preventDefault();
+
+  const reviews = JSON.parse(localStorage.getItem('reviews'))  || []
+
+  const username = document.getElementById('uname').value
+  const title = document.getElementById('title').value
+  const content = document.getElementById('content').value
+
+  const reviewPost = {
+      username,
+      title,
+      content
+  }
+
+  reviews.push(reviewPost)
+
+ localStorage.setItem('reviews', JSON.stringify(reviews))
+
+ console.log("yeah1")
+
+}
+
+
+
+function addReviewPost(event) {
+  // pulled the blog data from localstorage
+  const reviewData = JSON.parse(localStorage.getItem('reviews'))  || []
+  
+// created a loop for the blogs and in the loop create the section. h2, div and p for the data
+for (let i = 0; i < reviewData.length; i++) {
+  const title = reviewData[i].title
+  const content = reviewData[i].content
+  const username = reviewData[i].username
+
+  const postDiv = document.createElement('section');
+  postDiv.classList.add('post');
+  
+  const titleElement = document.createElement('h3');
+  titleElement.textContent = title;
+  
+ 
+  const contentElement = document.createElement('p');
+  contentElement.textContent = content;
+  
+  const usernameElement = document.createElement('p');
+  usernameElement.textContent = 'posted by: ' + username;
+  
+  
+  
+  // appended the elements onto the page
+  postDiv.append(titleElement, contentElement, usernameElement)
+  const post = document.querySelector('#review')
+  post.appendChild(postDiv)
+  
+}
+
+
+
+console.log("yeah2")
+}
+
+formData.addEventListener('submit', start)
+formData.addEventListener('submit', addReviewPost)
