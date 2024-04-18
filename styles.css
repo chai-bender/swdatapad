@@ -134,3 +134,64 @@ input[type="text"] {
 textarea {
   display: block;
 }
+
+@media screen and (max-width: 992px) {
+  
+  .stsize{
+    width: 70%;
+  }
+
+  .container{
+      display: flex;
+      width:50%;
+      height:50%;
+  }
+  .flex{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      width:65%;
+  }
+  }
+
+
+@media screen and (max-width: 768px) {
+ body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  height: 10%;
+ }
+ header{
+  width: 120%;
+ }
+ .stsize{
+  width: 100%;
+}
+ .container {
+  display: block;
+  flex-direction: column;
+  width: 190%;
+}
+.content{
+  width: 125%;
+}
+
+}
+
+
+@media screen and (max-width: 390px) {
+  body {
+      display: flex;
+      flex-direction: column;
+      width: 130%;
+      height: 10%;
+  }
+  .container {
+      display: block;
+      flex-direction: column;
+      width: 130%;
+  }
+ 
+}
