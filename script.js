@@ -221,6 +221,43 @@ window.onclick = function (event) {
 
 const formData = document.getElementById('form')
 
+
+
+
+function addReviewPost() {
+  const reviewData = JSON.parse(localStorage.getItem('reviews'))  || []
+  
+  
+  for ( i = 0; i < reviewData.length; i++) {
+    const title = reviewData[i].title
+    const content = reviewData[i].content
+    const username = reviewData[i].username
+    
+    const postDiv = document.createElement('section');
+    postDiv.classList.add('post');
+    
+    const titleElement = document.createElement('h3');
+    titleElement.textContent = title;
+    
+ 
+    const contentElement = document.createElement('p');
+    contentElement.textContent = content;
+    
+    const usernameElement = document.createElement('p');
+  usernameElement.textContent = 'posted by: ' + username;
+  
+  
+  
+  postDiv.append(titleElement, contentElement, usernameElement)
+  const post = document.querySelector('#review')
+  post.appendChild(postDiv)
+  
+}
+
+
+
+}
+
 function start(event) {
   event.preventDefault();
 
@@ -242,43 +279,4 @@ function start(event) {
 
 addReviewPost()
 }
-
-
-
-function addReviewPost(event) {
-  // event.preventDefault()
-  const reviewData = JSON.parse(localStorage.getItem('reviews'))  || []
-  
-
-for (let i = 0; i < reviewData.length; i++) {
-  const title = reviewData[i].title
-  const content = reviewData[i].content
-  const username = reviewData[i].username
-
-  const postDiv = document.createElement('section');
-  postDiv.classList.add('post');
-  
-  const titleElement = document.createElement('h3');
-  titleElement.textContent = title;
-  
- 
-  const contentElement = document.createElement('p');
-  contentElement.textContent = content;
-  
-  const usernameElement = document.createElement('p');
-  usernameElement.textContent = 'posted by: ' + username;
-  
-  
-  
-  postDiv.append(titleElement, contentElement, usernameElement)
-  const post = document.querySelector('#review')
-  post.appendChild(postDiv)
-  
-}
-
-
-
-}
-
 formData.addEventListener('submit', start)
-// formData.addEventListener('submit', addReviewPost)
