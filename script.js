@@ -234,7 +234,6 @@ function start(event) {
 
  localStorage.setItem('reviews', JSON.stringify(reviews))
 
- console.log("yeah1")
 
 }
 
@@ -242,10 +241,9 @@ function start(event) {
 
 function addReviewPost(event) {
   event.preventDefault()
-  // pulled the blog data from localstorage
   const reviewData = JSON.parse(localStorage.getItem('reviews'))  || []
   
-// created a loop for the blogs and in the loop create the section. h2, div and p for the data
+
 for (let i = 0; i < reviewData.length; i++) {
   const title = reviewData[i].title
   const content = reviewData[i].content
@@ -266,7 +264,6 @@ for (let i = 0; i < reviewData.length; i++) {
   
   
   
-  // appended the elements onto the page
   postDiv.append(titleElement, contentElement, usernameElement)
   const post = document.querySelector('#review')
   post.appendChild(postDiv)
@@ -275,7 +272,6 @@ for (let i = 0; i < reviewData.length; i++) {
 
 
 
-console.log("yeah2")
 }
 
 formData.addEventListener('submit', start)
