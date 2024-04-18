@@ -32,10 +32,11 @@ header h1 {
 .content {
   background-color: #fff;
   padding: 20px;
+  cursor: pointer;
   border-radius: 5px;
   margin: 10px;
   box-shadow: inset 0 -3em 3em rgba(41, 5, 161, 0.3), 0 0 0 2px white,
-    0.3em 0.3em 1em rgb(200 0 0 / 60%);
+    0.3em 0.3em 1em yellow;
 }
 
 #results {
@@ -43,6 +44,7 @@ header h1 {
   font-size: 30px;
   flex-direction: column;
   text-shadow: 1px 1px rgba(41, 5, 161, 0.3);
+  
 }
 
 .flex {
@@ -97,3 +99,10 @@ h1 {
   font-size: 40px;
 }
 
+#api-data {
+  position: relative;
+  left: 400px;
+  
+
+
+}
