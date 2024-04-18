@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: #c8c7c7;
 }
 header {
   display: flex;
@@ -30,6 +30,7 @@ header h1 {
   justify-content: space-between;
 }
 .content {
+  width: 250px;
   background-color: #fff;
   padding: 20px;
   cursor: pointer;
@@ -44,7 +45,6 @@ header h1 {
   font-size: 30px;
   flex-direction: column;
   text-shadow: 1px 1px rgba(41, 5, 161, 0.3);
-  
 }
 
 .flex {
@@ -102,7 +102,18 @@ h1 {
 #api-data {
   position: relative;
   left: 400px;
-  
+}
 
+#characters,
+#planets,
+#starships {
+  text-align: center;
+}
 
+input[type="text"] {
+  display: block;
+}
+
+textarea {
+  display: block;
 }
