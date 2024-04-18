@@ -39,8 +39,10 @@ header h1 {
 }
 
 #results {
-  display: flex;
-  flex-basis: 0 0 20%;
+  padding: 10px;
+  font-size: 30px;
+  flex-direction: column;
+  text-shadow: 1px 1px rgba(41, 5, 161, 0.3);
 }
 
 .flex {
@@ -93,5 +95,5 @@ header h1 {
 
 h1 {
   font-size: 40px;
-  /* text-shadow: 4px 4px rgba(41, 5, 161, 0.3); */
 }
+
