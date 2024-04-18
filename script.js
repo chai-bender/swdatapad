@@ -15,16 +15,17 @@ characterBtnEl.addEventListener("click", function (event) {
       for (const people of data.results) {
         const createTableRow = document.createElement("div");
         const title = document.createElement("h3");
-        const gender = document.createElement("p");
+        const birthYear = document.createElement("p");
+        const height = document.createElement("p")
+        const hairColor = document.createElement("p")
 
         const pplBtn = document.createElement("button");
 
         title.textContent = people.name;
-        if (people.gender === "n/a") {
-          gender.textContent = "Droid";
-        } else {
-          gender.textContent = people.gender;
-        }
+        birthYear.textContent = "Birth Year: " + people.birth_year;
+        height.textContent = "Height: " + people.height;
+        hairColor.textContent = "Hair Color: " + people.hair_color;
+        
         pplBtn.textContent = "See GIF";
         pplBtn.setAttribute("value", people.name);
 
@@ -54,7 +55,7 @@ characterBtnEl.addEventListener("click", function (event) {
             });
         
         });
-        createTableRow.append(title, gender, pplBtn);
+        createTableRow.append(title, birthYear, height, hairColor, pplBtn);
         resultsContainer.appendChild(createTableRow);
       }
     });
@@ -72,6 +73,7 @@ planetBtnEl.addEventListener("click", function () {
       for (const planets of data.results) {
         const createTableRow = document.createElement("div");
         const title = document.createElement("h3");
+        
         const planBtn = document.createElement("button");
         title.textContent = planets.name;
         planBtn.textContent = "See GIF";
@@ -214,6 +216,7 @@ function start(event) {
 
 
 function addReviewPost(event) {
+  event.preventDefault()
   // pulled the blog data from localstorage
   const reviewData = JSON.parse(localStorage.getItem('reviews'))  || []
   
