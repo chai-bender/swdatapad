@@ -1,11 +1,11 @@
 # swdatapad
 
 Description:
- -A simple and fast source of Star Wars lore and identification created using web API's.The purpose of this page is to help those who want to find more information about a certain character, planet, or starship. This page can be used for research on a certain subject or just to quickly fact-check your knowledge.
+ -A simple and fast source of Star Wars lore and identification created using web API's. The purpose of this page is to help those who want to find more information about a certain character, planet, or starship. This page can be used for research on a certain subject or just to quickly fact-check your knowledge.
 
 
 Usage: 
- In order to use the datapad you simply need to click on one of the three buttons (Characters, Planets, or Starships),Once a button is pressed the information for that button will appear below! If "See Gif" is clicked on then a gif relating to the character, planet or startship will be shown! 
+ In order to use the datapad you simply need to click on one of the three buttons (Characters, Planets, or Starships),Once a button is pressed the information for that button will appear below! If "See Gif" is clicked on then a gif relating to the character, planet or startship will be shown! Use the holocron button to leave us a review of the site! 
 
 Credit:
 
@@ -29,8 +29,9 @@ Star Wars Data API: https://swapi.dev/
 Giphy API: https://developers.giphy.com/docs/api/
 
 Links and ScreenShots:
+
  -Repo: https://github.com/nmahban/swdatapad.git
  Star Wars API: https://swapi.dev/
  Giphy API: https://developers.giphy.com/docs/api/
-
+ Deployed:  https://nmahban.github.io/swdatapad/
  
