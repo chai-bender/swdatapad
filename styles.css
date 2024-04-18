@@ -47,6 +47,15 @@ header h1 {
   text-shadow: 1px 1px rgba(41, 5, 161, 0.3);
 }
 
+.people{
+  height: 400px;
+}
+
+.gif{
+position: relative;  
+bottom: 300px;
+}
+
 .flex {
   display: flex;
 }

@@ -13,23 +13,25 @@ characterBtnEl.addEventListener("click", function (event) {
       console.log(data);
       resultsContainer.innerHTML = "";
       for (const people of data.results) {
-        const createTableRow = document.createElement("div");
+        const createDiv = document.createElement("div");
         const title = document.createElement("h3");
-        const gender = document.createElement("p");
-
+        const birthYear = document.createElement("p");
+        const height = document.createElement("p")
+        const hairColor = document.createElement("p")
         const pplBtn = document.createElement("button");
 
+        createDiv.setAttribute("class","people")
+
         title.textContent = people.name;
-        if (people.gender === "n/a") {
-          gender.textContent = "Droid";
-        } else {
-          gender.textContent = people.gender;
-        }
+        birthYear.textContent = "Birth Year: " + people.birth_year;
+        height.textContent = "Height: " + people.height;
+        hairColor.textContent = "Hair Color: " + people.hair_color;
+        
         pplBtn.textContent = "See GIF";
         pplBtn.setAttribute("value", people.name);
 
         pplBtn.addEventListener("click", function (event) {
-          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
+          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn&limit=10`;
           fetch(requestUrl)
             .then(function (response) {
               return response.json();
@@ -47,15 +49,17 @@ characterBtnEl.addEventListener("click", function (event) {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-
+              
+              imageEl.setAttribute("class", "gif")
               imageEl.src = gifs;
               newCard.append(imageEl);
               sectionEl.append(newCard);
+              createDiv.appendChild(sectionEl)
             });
         
         });
-        createTableRow.append(title, gender, pplBtn);
-        resultsContainer.appendChild(createTableRow);
+        createDiv.append(title, birthYear, height, hairColor, pplBtn);
+        resultsContainer.appendChild(createDiv);
       }
     });
 });
@@ -70,15 +74,25 @@ planetBtnEl.addEventListener("click", function () {
     .then(function (data) {
       console.log(data);
       for (const planets of data.results) {
-        const createTableRow = document.createElement("div");
+        const createDiv = document.createElement("div");
         const title = document.createElement("h3");
+        const climate = document.createElement("p")
+        const diameter = document.createElement("p")
+        const population = document.createElement("p")
         const planBtn = document.createElement("button");
+        
+        createDiv.setAttribute("class","people")
+
         title.textContent = planets.name;
+        climate.textContent = "Climate: " + planets.climate;
+        diameter.textContent = "Diameter: " + planets.diameter + "km";
+        population.textContent = "Population: " + planets.population;
+        
         planBtn.textContent = "See GIF";
         planBtn.setAttribute("value", planets.name);
 
         planBtn.addEventListener("click", function () {
-          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
+          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn&limit=10`;
           fetch(requestUrl)
             .then(function (response) {
               return response.json();
@@ -96,15 +110,17 @@ planetBtnEl.addEventListener("click", function () {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-
+              
+              imageEl.setAttribute("class", "gif");
               imageEl.src = gifs;
-              newCard.append(imageEl);
-              sectionEl.append(newCard);
+              newCard.appendChild(imageEl);
+              sectionEl.appendChild(newCard);
+              createDiv.appendChild(sectionEl);
             });
         });
 
-        createTableRow.append(title, planBtn);
-        resultsContainer.appendChild(createTableRow);
+        createDiv.append(title, climate, diameter, population, planBtn);
+        resultsContainer.appendChild(createDiv);
       }
     });
 });
@@ -119,17 +135,26 @@ shipsBtnEl.addEventListener("click", function () {
       console.log(data);
 
       for (const starships of data.results) {
-        const createTableRow = document.createElement("div");
+        const createDiv = document.createElement("div");
         const title = document.createElement("h3");
-
+        const crew =document.createElement("p");
+        const passengers =document.createElement("p");
+        const speed =document.createElement("p");
         const shipBtn = document.createElement("button");
 
+        createDiv.setAttribute("class","people");
+
         title.textContent = starships.name;
+        crew.textContent = "Crew: " + starships.crew;
+        passengers.textContent = "Passengers: " + starships.passengers;
+        speed.textContent = "Max Speed: " + starships.max_atmosphering_speed + "kph";
+
+
         shipBtn.textContent = "See GIF";
         shipBtn.setAttribute("value", starships.name);
 
         shipBtn.addEventListener("click", function () {
-          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
+          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn&limit=10`;
           fetch(requestUrl)
             .then(function (response) {
               return response.json();
@@ -147,16 +172,18 @@ shipsBtnEl.addEventListener("click", function () {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-
+              
+              imageEl.setAttribute("class", "gif")
               imageEl.src = gifs;
               newCard.append(imageEl);
               sectionEl.append(newCard);
+              createDiv.appendChild(sectionEl)
             });
      
         });
 
-        createTableRow.append(title, shipBtn);
-        resultsContainer.appendChild(createTableRow);
+        createDiv.append(title, crew, passengers, speed, shipBtn);
+        resultsContainer.appendChild(createDiv);
       }
     });
 });
@@ -207,17 +234,16 @@ function start(event) {
 
  localStorage.setItem('reviews', JSON.stringify(reviews))
 
- console.log("yeah1")
 
 }
 
 
 
 function addReviewPost(event) {
-  // pulled the blog data from localstorage
+  event.preventDefault()
   const reviewData = JSON.parse(localStorage.getItem('reviews'))  || []
   
-// created a loop for the blogs and in the loop create the section. h2, div and p for the data
+
 for (let i = 0; i < reviewData.length; i++) {
   const title = reviewData[i].title
   const content = reviewData[i].content
@@ -238,7 +264,6 @@ for (let i = 0; i < reviewData.length; i++) {
   
   
   
-  // appended the elements onto the page
   postDiv.append(titleElement, contentElement, usernameElement)
   const post = document.querySelector('#review')
   post.appendChild(postDiv)
@@ -247,7 +272,6 @@ for (let i = 0; i < reviewData.length; i++) {
 
 
 
-console.log("yeah2")
 }
 
 formData.addEventListener('submit', start)
