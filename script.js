@@ -31,6 +31,7 @@ characterBtnEl.addEventListener("click", function (event) {
         pplBtn.setAttribute("value", people.name);
 
         pplBtn.addEventListener("click", function (event) {
+
           const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn&limit=10`;
           fetch(requestUrl)
             .then(function (response) {
@@ -42,8 +43,8 @@ characterBtnEl.addEventListener("click", function (event) {
               const randomGifNumber = Math.floor(
                 Math.random() * data.data.length
               );
-              const sectionEl = document.getElementById("api-data");
-              sectionEl.innerHTML = "";
+              const sectionEl = document.getElementById("api-data1");
+              sectionEl.innerHTML = '';
               const gifs = data.data[randomGifNumber].images.original.url;
 
               const newCard = document.createElement("div");
@@ -92,27 +93,29 @@ planetBtnEl.addEventListener("click", function () {
         planBtn.setAttribute("value", planets.name);
 
         planBtn.addEventListener("click", function () {
+          console.log("this")
           const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn&limit=10`;
           fetch(requestUrl)
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (data) {
-              console.log(data);
-
-              const randomGifNumber = Math.floor(
-                Math.random() * data.data.length
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+            
+            const randomGifNumber = Math.floor(
+              Math.random() * data.data.length
               );
-              const sectionEl = document.getElementById("api-data");
-              sectionEl.innerHTML = "";
-              const gifs = data.data[randomGifNumber].images.original.url;
+                const sectionEl = document.getElementById("api-data2");
+                sectionEl.innerHTML = '';
 
-              const newCard = document.createElement("div");
-
-              const imageEl = document.createElement("img");
-              
-              imageEl.setAttribute("class", "gif");
-              imageEl.src = gifs;
+                const gifs = data.data[randomGifNumber].images.original.url;
+                
+                const newCard = document.createElement("div");
+                
+                const imageEl = document.createElement("img");
+                
+                imageEl.setAttribute("class", "gif");
+                imageEl.src = gifs;
               newCard.appendChild(imageEl);
               sectionEl.appendChild(newCard);
               createDiv.appendChild(sectionEl);
@@ -154,6 +157,8 @@ shipsBtnEl.addEventListener("click", function () {
         shipBtn.setAttribute("value", starships.name);
 
         shipBtn.addEventListener("click", function () {
+          console.log("this")
+
           const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn&limit=10`;
           fetch(requestUrl)
             .then(function (response) {
@@ -165,8 +170,9 @@ shipsBtnEl.addEventListener("click", function () {
               const randomGifNumber = Math.floor(
                 Math.random() * data.data.length
               );
-              const sectionEl = document.getElementById("api-data");
-              sectionEl.innerHTML = "";
+              const sectionEl = document.getElementById("api-data3");
+              console.log(sectionEl)
+              sectionEl.innerHTML = '';
               const gifs = data.data[randomGifNumber].images.original.url;
 
               const newCard = document.createElement("div");
@@ -234,13 +240,13 @@ function start(event) {
 
  localStorage.setItem('reviews', JSON.stringify(reviews))
 
-
+addReviewPost()
 }
 
 
 
 function addReviewPost(event) {
-  event.preventDefault()
+  // event.preventDefault()
   const reviewData = JSON.parse(localStorage.getItem('reviews'))  || []
   
 
@@ -275,4 +281,4 @@ for (let i = 0; i < reviewData.length; i++) {
 }
 
 formData.addEventListener('submit', start)
-formData.addEventListener('submit', addReviewPost)
+// formData.addEventListener('submit', addReviewPost)

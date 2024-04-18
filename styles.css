@@ -108,7 +108,15 @@ h1 {
   font-size: 40px;
 }
 
-#api-data {
+#api-data1 {
+  position: relative;
+  left: 400px;
+}
+#api-data2 {
+  position: relative;
+  left: 400px;
+}
+#api-data3 {
   position: relative;
   left: 400px;
 }
