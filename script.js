@@ -18,8 +18,9 @@ characterBtnEl.addEventListener("click", function (event) {
         const birthYear = document.createElement("p");
         const height = document.createElement("p")
         const hairColor = document.createElement("p")
-
         const pplBtn = document.createElement("button");
+
+        createTableRow.setAttribute("class","people")
 
         title.textContent = people.name;
         birthYear.textContent = "Birth Year: " + people.birth_year;
@@ -30,7 +31,7 @@ characterBtnEl.addEventListener("click", function (event) {
         pplBtn.setAttribute("value", people.name);
 
         pplBtn.addEventListener("click", function (event) {
-          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn`;
+          const requestUrl = `https://api.giphy.com/v1/gifs/search?q=${this.value}&api_key=eV1vilwiJxBWQEhCWPkw5LWLjkj9AMMn&limit=10`;
           fetch(requestUrl)
             .then(function (response) {
               return response.json();
@@ -48,10 +49,12 @@ characterBtnEl.addEventListener("click", function (event) {
               const newCard = document.createElement("div");
 
               const imageEl = document.createElement("img");
-
+              
+              imageEl.setAttribute("class", "gif")
               imageEl.src = gifs;
               newCard.append(imageEl);
               sectionEl.append(newCard);
+              createTableRow.appendChild(sectionEl)
             });
         
         });
@@ -142,7 +145,7 @@ shipsBtnEl.addEventListener("click", function () {
               const randomGifNumber = Math.floor(
                 Math.random() * data.data.length
               );
-              const sectionEl = document.getElementById("api-data");
+              const sectionEl = document.querySelector("#api-data");
               sectionEl.innerHTML = "";
               const gifs = data.data[randomGifNumber].images.original.url;
 

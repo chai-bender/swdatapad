@@ -47,6 +47,15 @@ header h1 {
   
 }
 
+.people{
+  height: 400px;
+}
+
+.gif{
+position: relative;  
+bottom: 300px;
+}
+
 .flex {
   display: flex;
 }
