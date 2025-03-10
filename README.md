@@ -1,4 +1,4 @@
-# swdatapad
+# swdatapad (Project)
 
 Description:
  -A simple and fast source of Star Wars lore and identification created using web API's. The purpose of this page is to help those who want to find more information about a certain character, planet, or starship. This page can be used for research on a certain subject or just to quickly fact-check your knowledge.
@@ -34,4 +34,14 @@ Links and ScreenShots:
  Star Wars API: https://swapi.dev/
  Giphy API: https://developers.giphy.com/docs/api/
  Deployed:  https://nmahban.github.io/swdatapad/
+
+
+ ## Screenshot
+ 
+![image](https://github.com/user-attachments/assets/0f5ba359-4d76-4b06-b449-a41f063c4f53)
+
+
+ ## Deployed Site
+
+https://chai-bender.github.io/swdatapad/
  
