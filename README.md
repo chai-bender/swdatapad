@@ -33,7 +33,7 @@ Links and ScreenShots:
  -Repo: https://github.com/nmahban/swdatapad.git
  Star Wars API: https://swapi.dev/
  Giphy API: https://developers.giphy.com/docs/api/
- Deployed:  https://nmahban.github.io/swdatapad/
+ Deployed: https://chai-bender.github.io/swdatapad/
 
 
  ## Screenshot
