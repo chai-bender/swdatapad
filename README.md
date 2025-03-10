@@ -1,4 +1,4 @@
-# swdatapad (Project)
+# swdatapad (Project 1)
 
 Description:
  -A simple and fast source of Star Wars lore and identification created using web API's. The purpose of this page is to help those who want to find more information about a certain character, planet, or starship. This page can be used for research on a certain subject or just to quickly fact-check your knowledge.
